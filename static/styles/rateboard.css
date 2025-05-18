@@ -1,0 +1,287 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eee;
+
+}
+
+html {
+  background: linear-gradient(to bottom, #F1FCFF, #C6D7FD);
+  min-height: 100dvh;
+  width: 100%;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #5E60CD, #80E7FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  margin-bottom: 1rem;
+}
+
+.rate-card {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem;
+  animation: fadeIn 1s ease-in;
+  gap: 10px;
+  position: relative;
+  justify-content: center;
+}
+
+.header-title{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: black;
+    margin: 8px;
+    padding: 0;
+}
+
+.rates-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 2rem;
+}
+
+.rates-row-inner{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.rate-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.reference-logo{
+  max-width: 70%;
+  align-self: center;
+}
+
+.rate-card-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.rate-label {
+  font-size: 0.9rem;
+  color: #565656;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.2px;
+}
+
+.source-footer {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.sources-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.source-card {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+
+.source-logo {
+  max-width: 60px;
+}
+
+.source-rate {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  color: black;
+}
+
+.rate-title{
+  color: black;
+  font-size: smaller;
+  color: #212121;
+}
+
+.reference-rate-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #5E60CD;
+}
+
+.rate-value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5E60CD;
+}
+
+.source-rate p {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-change {
+  background-color: #6669d9;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-change:hover {
+  background-color: #5E60CD;
+}
+
+footer {
+  text-align: center;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-content p, a {
+   color: #212121;
+   font-size: 12px;
+}
+
+/*aniimation*/
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.4);
+  }
+  70% {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px 8px rgba(33, 150, 243, 0);
+
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+  }
+}
+
+.rate-card.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.graph-card {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+#dollarChart{
+  margin-top: 5px;
+  padding: 0;
+  position: relative;
+}
+
+.bcrp-logo {
+  max-width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  z-index: 100;
+}
+
+.graph-title{
+  position: relative;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #5E60CD;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  align-self: flex-start;
+  left: 5px;
+}
+
+.graph-subtitle{
+    position: relative;
+        font-size: 0.6rem;
+        font-weight: 400;
+        color: #666;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    align-self: flex-start;
+    left: 5px;
+}
+
+@media(max-width: 800px) {
+  .rates-row{
+    flex-direction: column;
+  }
+
+  .responsive {
+    flex-direction: row;
+  }
+}

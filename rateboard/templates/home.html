@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RateBoard</title>
+  <link rel="stylesheet" href="{% static 'styles/rateboard.css' %}" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">RateBoard</h1>
+    <h2 class="subtitle">Precio del dólar en Perú</h2>
+
+    <section class="rates-row">
+
+      <div class="rate-card pulse">
+          <div class="rate-card-header">
+            <img src="{{ reference_logo }}" alt="{{ reference_source }} logo" class="reference-logo" />
+            <h5 class="header-title">Tipo de Cambio Promedio</h5>
+          </div>
+          <div class="rates-row-inner responsive">
+            <div class="rate-section">
+              <div class="rate-label">Compra</div>
+              <div class="reference-rate-value">{{ reference_buy_rate }}</div>
+            </div>
+            <div class="rate-section">
+              <div class="rate-label">Venta</div>
+              <div class="reference-rate-value">{{ reference_sell_rate }}</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="graph-card">
+        <h5 class="graph-title">Variación del precio del dólar</h5>
+        <h6 class="graph-subtitle">(Últimos 30 días)</h6>
+        <img
+          src="https://reqlut2.s3.amazonaws.com/uploads/logos/8bbe55987caa95762cd6fc29e9cb581510fb378c-5242880.png"
+          alt="Reqlut logo"
+          class="bcrp-logo"
+        />
+        <canvas id="dollarChart"></canvas>
+      </div>
+    </section>
+
+
+    <section class="sources-list">
+      {% for source in sources %}
+      <div class="source-card">
+        <img src="{{ source.url_logo }}" alt="{{ source.name }} logo" class="source-logo" />
+        <div class="source-rate">
+          <p class="rate-title">Compra: </p>
+          <p class="rate-value">{{ source.buy_rate }}</p>
+        </div>
+        <div class="source-rate">
+          <p class="rate-title">Venta: </p>
+          <p class="rate-value">{{ source.sell_rate }}</p>
+        </div>
+        <a href="{{ source.url }}" target="_blank" class="btn-change">Cambiar</a>
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+  <script id="dollar-chart-data" type="application/json">
+    {{ history_data|safe }}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'js/dollar_chart.js' %}"></script>
+</body>
+  <footer>
+    <div class="footer-content">
+      <p>RateBoard © 2025. Developed by <a href="https://luciaaliagat-portfolio.vercel.app/">Lucía Aliaga</a></p>
+    </div>
+  </footer>
+</html>
