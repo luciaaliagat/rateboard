@@ -6,9 +6,15 @@ from .tucambista import scrape_tucambista
 from .chaskidolar import scrape_chaskidolar
 from .sunat_sbs import scrape_sunat_sbs
 
+sem = asyncio.Semaphore(1)
+
+async def limited_scraper(scraper):
+    async with sem:
+        return await scraper()
+
 async def run_scrapers():
     scrapers = [scrape_chaskidolar, scrape_kambista, scrape_tkambio, scrape_dollarhouse, scrape_tucambista, scrape_sunat_sbs]
-    tasks = [asyncio.create_task(scraper()) for scraper in scrapers]
+    tasks = [asyncio.create_task(limited_scraper(scraper)) for scraper in scrapers]
 
     results = []
     for task in asyncio.as_completed(tasks):
@@ -22,7 +28,6 @@ async def run_scrapers():
 
 def get_rates():
     return asyncio.run(run_scrapers())
-
 
 if __name__ == "__main__":
     rates = get_rates()
