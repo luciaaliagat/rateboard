@@ -1,4 +1,4 @@
-from . import views
+from .views import views
 
 """
 URL configuration for rateboard project.

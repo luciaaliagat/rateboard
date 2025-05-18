@@ -1,8 +1,8 @@
 import json
 
 from django.shortcuts import render
-from .services.service import get_rates
-from .services.bcrp_service import get_bcrp_dollar_history
+from rateboard.services.service import get_rates
+from rateboard.services.bcrp_service import get_bcrp_dollar_history
 
 def home(request):
     rates = get_rates(use_db=True)

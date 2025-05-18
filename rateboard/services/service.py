@@ -12,11 +12,15 @@ def get_rates(use_db=True):
     two_pm = time(14, 0)
 
     cutoff_datetime = make_aware(datetime.combine(today, two_pm))
+    print(f"Now: {now}, cutoff_datetime: {cutoff_datetime}")
 
     if use_db:
         rates_today = Rate.objects.filter(timestamp__gte=cutoff_datetime)
+        print(f"Rates found since cutoff: {rates_today.count()}")
+
         if rates_today.exists():
             return list(rates_today)
+
         else:
             results = scrape_rates()
 
@@ -31,14 +35,11 @@ def get_rates(use_db=True):
                         url=r['url'],
                         url_logo=r.get('url_logo', '')
                     )
-                # Devolver lo que se guardó
                 return list(Rate.objects.all())
             else:
-                # Si scrap falla, devolver lo que hay (aunque sea viejo)
                 return list(Rate.objects.all())
 
     else:
-        # Si use_db es False, solo scrapear sin guardar
         results = asyncio.run(scrape_rates())
         return results
 
