@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
           label: 'Compra',
           data: historyData.buy_rates,
           borderColor: 'rgba(33, 150, 243, 1)',
-          backgroundColor: gradientBuy,  // 👈 Aplicar degradado
+          backgroundColor: gradientBuy,
           borderWidth: 2,
-          fill: true,                    // 👈 Rellenar debajo de la línea
+          fill: true,
           pointRadius: 0,
           tension: 0.4,
         },
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
           label: 'Venta',
           data: historyData.sell_rates,
           borderColor: 'rgba(244, 67, 54, 1)',
-          backgroundColor: gradientSell, // 👈 Aplicar degradado
+          backgroundColor: gradientSell,
           borderWidth: 2,
-          fill: true,                    // 👈 Rellenar debajo de la línea
+          fill: true,
           pointRadius: 0,
           tension: 0.4,
         },
