@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%_dx=(k0wpiqdcnw&pp!%wffh9m-m9c$b1=iwu%jet7@8k&+c$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rateboard.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
